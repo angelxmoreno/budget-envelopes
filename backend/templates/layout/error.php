@@ -32,10 +32,10 @@
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div class="error-container">
-        <?= $this->Flash->render() ?>
-        <?= $this->fetch('content') ?>
-        <?= $this->Html->link(__('Back'), 'javascript:history.back()') ?>
-    </div>
+<div class="error-container">
+    <?= $this->Flash->render() ?>
+    <?= $this->fetch('content') ?>
+    <?= $this->Html->link(__('Back'), 'javascript:history.back()') ?>
+</div>
 </body>
 </html>

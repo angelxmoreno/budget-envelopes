@@ -14,7 +14,12 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+use Cake\Utility\Inflector;
+
+$cakeDescription = 'BudgetEnvelopes: another budgeting app';
+$controllers = [
+    'IncomeDeductions',
+]
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,22 +41,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-nav">
-        <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
-        </div>
-        <div class="top-nav-links">
-            <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>
-            <a target="_blank" rel="noopener" href="https://api.cakephp.org/">API</a>
-        </div>
-    </nav>
-    <main class="main">
-        <div class="container">
-            <?= $this->Flash->render() ?>
-            <?= $this->fetch('content') ?>
-        </div>
-    </main>
-    <footer>
-    </footer>
+<nav class="top-nav">
+    <div class="top-nav-title">
+        <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+    </div>
+    <div class="top-nav-links">
+        <?= $this->Html->linkFromPath('Income', 'Incomes::view', [1]) ?>
+
+        <?php foreach ($controllers as $controller) : ?>
+            <?= $this->Html->linkFromPath(Inflector::singularize($controller), $controller . '::index') ?>
+        <?php endforeach; ?>
+
+        <?= $this->Html->linkFromPath('Categories', 'Categories::index') ?>
+
+    </div>
+</nav>
+<main class="main">
+    <div class="container">
+        <?= $this->Flash->render() ?>
+        <?= $this->fetch('content') ?>
+    </div>
+</main>
+<footer>
+</footer>
 </body>
 </html>

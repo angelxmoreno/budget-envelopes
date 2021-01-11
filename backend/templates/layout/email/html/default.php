@@ -20,6 +20,6 @@
     <title><?= $this->fetch('title') ?></title>
 </head>
 <body>
-    <?= $this->fetch('content') ?>
+<?= $this->fetch('content') ?>
 </body>
 </html>
