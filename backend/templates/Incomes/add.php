@@ -1,10 +1,12 @@
 <?php
+declare(strict_types=1);
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Income $income
  */
 
-use App\Model\Table\IncomesTable;
+use App\Model\Enums\Frequency;
 
 ?>
 <div class="row">
@@ -23,7 +25,7 @@ use App\Model\Table\IncomesTable;
                 echo $this->Form->control('name');
                 echo $this->Form->control('frequency', [
                     'empty' => 'Choose',
-                    'options' => array_combine(IncomesTable::PAYCHECK_FREQUENCY, IncomesTable::PAYCHECK_FREQUENCY)
+                    'options' => Frequency::asList()
                 ]);
                 echo $this->Form->control('gross');
                 echo $this->Form->control('first_pay_check_date', ['empty' => true]);

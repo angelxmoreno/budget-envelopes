@@ -35,7 +35,7 @@
                     </td>
                     <td><?= $this->Number->format($bill->amount) ?></td>
                     <td><?= h($bill->frequency) ?></td>
-                    <td><?= h($bill->is_auto_paid) ?></td>
+                    <td><?= $bill->is_auto_paid ? __('Yes') : __('No'); ?></td>
                     <td><?= h($bill->due_date) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $bill->id]) ?>

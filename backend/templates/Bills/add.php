@@ -1,8 +1,14 @@
 <?php
+declare(strict_types=1);
+
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Bill $bill
+ * @var \App\Model\Entity\Category[] $categories
  */
+
+use App\Model\Enums\Frequency;
+
 ?>
 <div class="row">
     <aside class="column">
@@ -22,7 +28,10 @@
                 echo $this->Form->control('url');
                 echo $this->Form->control('img_url');
                 echo $this->Form->control('amount');
-                echo $this->Form->control('frequency');
+                echo $this->Form->control('frequency', [
+                    'empty' => 'Choose',
+                    'options' => Frequency::asList()
+                ]);
                 echo $this->Form->control('is_auto_paid');
                 echo $this->Form->control('due_date');
                 ?>

@@ -46,4 +46,11 @@ class Bill extends Entity
         'modified' => true,
         'category' => true,
     ];
+
+    protected function _getImgUrl(string $img_url = null): ?string
+    {
+        return $img_url && trim($img_url) !== ''
+            ? $img_url
+            : null;
+    }
 }

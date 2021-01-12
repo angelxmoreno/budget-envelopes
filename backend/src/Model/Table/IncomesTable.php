@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Model\Table;
 
+use App\Model\Enums\Frequency;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
@@ -29,18 +30,6 @@ use Cake\Validation\Validator;
  */
 class IncomesTable extends Table
 {
-
-    public const PAYCHECK_FREQUENCY_WEEKLY = 'weekly';
-    public const PAYCHECK_FREQUENCY_BI_WEEKLY = 'bi-weekly';
-    public const PAYCHECK_FREQUENCY_MONTHLY = 'monthly';
-    public const PAYCHECK_FREQUENCY_BI_MONTHLY = 'bi-monthly';
-
-    public const PAYCHECK_FREQUENCY = [
-        self::PAYCHECK_FREQUENCY_WEEKLY,
-        self::PAYCHECK_FREQUENCY_BI_WEEKLY,
-        self::PAYCHECK_FREQUENCY_MONTHLY,
-        self::PAYCHECK_FREQUENCY_BI_MONTHLY,
-    ];
 
     /**
      * Initialize method
@@ -81,7 +70,7 @@ class IncomesTable extends Table
             ->scalar('frequency')
             ->notEmptyString('frequency')
             ->requirePresence('frequency', 'create')
-            ->inList('frequency', self::PAYCHECK_FREQUENCY);
+            ->inList('frequency', Frequency::asList());
 
         $validator
             ->scalar('name')
