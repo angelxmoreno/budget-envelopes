@@ -51,7 +51,7 @@ $controllers = [
         <?php foreach ($controllers as $controller) : ?>
             <?= $this->Html->linkFromPath(Inflector::singularize($controller), $controller . '::index') ?>
         <?php endforeach; ?>
-
+        <?= $this->Html->linkFromPath('Bills', 'Bills::index') ?>
         <?= $this->Html->linkFromPath('Categories', 'Categories::index') ?>
 
     </div>
