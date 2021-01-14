@@ -30,8 +30,8 @@ class CategoriesFixture extends TestFixture
         'name' => [
             'type' => 'string',
             'length' => 100,
-            'null' => true,
-            'default' => null,
+            'null' => false,
+            'default' => '',
             'collate' => 'utf8mb4_unicode_ci',
             'comment' => '',
             'precision' => null
@@ -39,7 +39,7 @@ class CategoriesFixture extends TestFixture
         'lft' => [
             'type' => 'integer',
             'length' => null,
-            'unsigned' => true,
+            'unsigned' => false,
             'null' => true,
             'default' => null,
             'comment' => '',
@@ -49,7 +49,7 @@ class CategoriesFixture extends TestFixture
         'rght' => [
             'type' => 'integer',
             'length' => null,
-            'unsigned' => true,
+            'unsigned' => false,
             'null' => true,
             'default' => null,
             'comment' => '',
@@ -82,6 +82,11 @@ class CategoriesFixture extends TestFixture
             'default' => null,
             'comment' => ''
         ],
+        '_indexes' => [
+            'lft' => ['type' => 'index', 'columns' => ['lft'], 'length' => []],
+            'rght' => ['type' => 'index', 'columns' => ['rght'], 'length' => []],
+            'parent_id' => ['type' => 'index', 'columns' => ['parent_id'], 'length' => []],
+        ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -106,8 +111,8 @@ class CategoriesFixture extends TestFixture
                 'lft' => 1,
                 'rght' => 1,
                 'parent_id' => 1,
-                'created' => '2021-01-11 05:08:55',
-                'modified' => '2021-01-11 05:08:55',
+                'created' => '2021-01-13 07:34:31',
+                'modified' => '2021-01-13 07:34:31',
             ],
         ];
         parent::init();

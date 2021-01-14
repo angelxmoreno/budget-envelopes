@@ -6,23 +6,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Category Entity
+ * PlaidCategory Entity
  *
  * @property int $id
  * @property string $name
+ * @property string|null $grouping
  * @property int|null $lft
  * @property int|null $rght
  * @property int|null $parent_id
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
- *
- * @property \App\Model\Entity\Category $parent_category
- * @property \App\Model\Entity\Bill[] $bills
- * @property \App\Model\Entity\BudgetItem[] $budget_items
- * @property \App\Model\Entity\Category[] $child_categories
- * @property \App\Model\Entity\IncomeDeduction[] $income_deductions
  */
-class Category extends Entity
+class PlaidCategory extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -34,16 +29,13 @@ class Category extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'name' => true,
+        'grouping' => true,
         'lft' => true,
         'rght' => true,
         'parent_id' => true,
         'created' => true,
         'modified' => true,
-        'parent_category' => true,
-        'bills' => true,
-        'budget_items' => true,
-        'child_categories' => true,
-        'income_deductions' => true,
     ];
 }
