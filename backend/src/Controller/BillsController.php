@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Utils\ResultSetTotals;
+
 /**
  * Bills Controller
  *
@@ -11,6 +13,10 @@ namespace App\Controller;
  */
 class BillsController extends AppController
 {
+    public $paginate = [
+        'limit' => 100,
+    ];
+
     /**
      * Index method
      *
@@ -22,8 +28,8 @@ class BillsController extends AppController
             'contain' => ['Categories'],
         ];
         $bills = $this->paginate($this->Bills);
-
-        $this->set(compact('bills'));
+        $totals = ResultSetTotals::bills($bills);
+        $this->set(compact('bills', 'totals'));
     }
 
     /**

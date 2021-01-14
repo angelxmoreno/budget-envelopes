@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Bill[]|\Cake\Collection\CollectionInterface $bills
+ * @var \App\Model\Entity\Bill $totals
  */
 ?>
 <div class="bills index content">
@@ -11,32 +13,27 @@
         <table>
             <thead>
             <tr>
-                <th><?= $this->Paginator->sort('id') ?></th>
-                <th><?= $this->Paginator->sort('category_id') ?></th>
                 <th><?= $this->Paginator->sort('name') ?></th>
                 <th><?= $this->Paginator->sort('amount') ?></th>
                 <th><?= $this->Paginator->sort('frequency') ?></th>
-                <th><?= $this->Paginator->sort('is_auto_paid') ?></th>
                 <th><?= $this->Paginator->sort('due_date') ?></th>
+                <th><?= $this->Paginator->sort('is_auto_paid') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($bills as $bill): ?>
                 <tr>
-                    <td><?= $this->Number->format($bill->id) ?></td>
-                    <td><?= $bill->has('category') ? $this->Html->link($bill->category->name,
-                            ['controller' => 'Categories', 'action' => 'view', $bill->category->id]) : '' ?></td>
                     <td>
-                        <h3><?= h($bill->name) ?></h3>
                         <?= $bill->has('img_url') ? $this->Html->image($bill->img_url,[
-                            'width' => 45
+                            'width' => 75
                         ]): ''?>
+                        <h4><?= h($bill->name) ?></h4>
                     </td>
-                    <td><?= $this->Number->format($bill->amount) ?></td>
+                    <td><?= $this->Number->currency($bill->amount) ?></td>
                     <td><?= h($bill->frequency) ?></td>
-                    <td><?= $bill->is_auto_paid ? __('Yes') : __('No'); ?></td>
                     <td><?= h($bill->due_date) ?></td>
+                    <td><?= $bill->is_auto_paid ? __('Yes') : __('No'); ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $bill->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $bill->id]) ?>
@@ -45,17 +42,17 @@
                     </td>
                 </tr>
             <?php endforeach; ?>
+            <tr>
+                <td>
+                    Totals
+                </td>
+                <td><?= $this->Number->currency($totals->amount) ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="actions"></td>
+            </tr>
             </tbody>
         </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </div>

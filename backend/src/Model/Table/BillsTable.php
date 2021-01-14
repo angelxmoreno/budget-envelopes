@@ -89,7 +89,7 @@ class BillsTable extends Table
 
         $validator
             ->boolean('is_auto_paid')
-            ->allowEmptyString('is_auto_paid');
+            ->notEmptyString('is_auto_paid');
 
         $validator
             ->date('due_date')

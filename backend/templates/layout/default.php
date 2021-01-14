@@ -53,6 +53,7 @@ $controllers = [
         <?php endforeach; ?>
         <?= $this->Html->linkFromPath('Bills', 'Bills::index') ?>
         <?= $this->Html->linkFromPath('Credit Cards', 'CreditCards::index') ?>
+        <?= $this->Html->linkFromPath('Loans', 'Loans::index') ?>
         <?= $this->Html->linkFromPath('Categories', 'Categories::index') ?>
 
     </div>

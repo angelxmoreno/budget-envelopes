@@ -85,7 +85,7 @@ class BillsFixture extends TestFixture
         'is_auto_paid' => [
             'type' => 'boolean',
             'length' => null,
-            'null' => true,
+            'null' => false,
             'default' => '0',
             'comment' => '',
             'precision' => null
@@ -144,9 +144,9 @@ class BillsFixture extends TestFixture
                 'amount' => 1,
                 'frequency' => 'Lorem ipsum dolor sit amet',
                 'is_auto_paid' => 1,
-                'due_date' => '2021-01-12',
-                'created' => '2021-01-12 03:44:26',
-                'modified' => '2021-01-12 03:44:26',
+                'due_date' => '2021-01-14',
+                'created' => '2021-01-14 05:39:49',
+                'modified' => '2021-01-14 05:39:49',
             ],
         ];
         parent::init();
