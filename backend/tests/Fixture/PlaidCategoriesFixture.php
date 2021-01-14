@@ -17,14 +17,80 @@ class PlaidCategoriesFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'name' => ['type' => 'string', 'length' => 100, 'null' => false, 'default' => '', 'collate' => 'utf8mb4_unicode_ci', 'comment' => '', 'precision' => null],
-        'grouping' => ['type' => 'string', 'length' => 100, 'null' => true, 'default' => '', 'collate' => 'utf8mb4_unicode_ci', 'comment' => '', 'precision' => null],
-        'lft' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'rght' => ['type' => 'integer', 'length' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'parent_id' => ['type' => 'integer', 'length' => null, 'unsigned' => true, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
-        'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
+        'id' => [
+            'type' => 'integer',
+            'length' => null,
+            'unsigned' => true,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'autoIncrement' => true,
+            'precision' => null
+        ],
+        'name' => [
+            'type' => 'string',
+            'length' => 100,
+            'null' => false,
+            'default' => '',
+            'collate' => 'utf8mb4_unicode_ci',
+            'comment' => '',
+            'precision' => null
+        ],
+        'grouping' => [
+            'type' => 'string',
+            'length' => 100,
+            'null' => true,
+            'default' => '',
+            'collate' => 'utf8mb4_unicode_ci',
+            'comment' => '',
+            'precision' => null
+        ],
+        'lft' => [
+            'type' => 'integer',
+            'length' => null,
+            'unsigned' => false,
+            'null' => true,
+            'default' => null,
+            'comment' => '',
+            'precision' => null,
+            'autoIncrement' => null
+        ],
+        'rght' => [
+            'type' => 'integer',
+            'length' => null,
+            'unsigned' => false,
+            'null' => true,
+            'default' => null,
+            'comment' => '',
+            'precision' => null,
+            'autoIncrement' => null
+        ],
+        'parent_id' => [
+            'type' => 'integer',
+            'length' => null,
+            'unsigned' => true,
+            'null' => true,
+            'default' => null,
+            'comment' => '',
+            'precision' => null,
+            'autoIncrement' => null
+        ],
+        'created' => [
+            'type' => 'datetime',
+            'length' => null,
+            'precision' => null,
+            'null' => true,
+            'default' => null,
+            'comment' => ''
+        ],
+        'modified' => [
+            'type' => 'datetime',
+            'length' => null,
+            'precision' => null,
+            'null' => true,
+            'default' => null,
+            'comment' => ''
+        ],
         '_indexes' => [
             'lft' => ['type' => 'index', 'columns' => ['lft'], 'length' => []],
             'rght' => ['type' => 'index', 'columns' => ['rght'], 'length' => []],
@@ -40,6 +106,7 @@ class PlaidCategoriesFixture extends TestFixture
         ],
     ];
     // phpcs:enable
+
     /**
      * Init method
      *

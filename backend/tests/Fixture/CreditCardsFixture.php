@@ -17,17 +17,103 @@ class CreditCardsFixture extends TestFixture
      */
     // phpcs:disable
     public $fields = [
-        'id' => ['type' => 'integer', 'length' => null, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'issuer' => ['type' => 'string', 'length' => 100, 'null' => false, 'default' => null, 'collate' => 'utf8mb4_unicode_ci', 'comment' => '', 'precision' => null],
-        'name' => ['type' => 'string', 'length' => 100, 'null' => false, 'default' => '', 'collate' => 'utf8mb4_unicode_ci', 'comment' => '', 'precision' => null],
-        'url' => ['type' => 'text', 'length' => null, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_unicode_ci', 'comment' => '', 'precision' => null],
-        'img_url' => ['type' => 'text', 'length' => null, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_unicode_ci', 'comment' => '', 'precision' => null],
-        'apr' => ['type' => 'float', 'length' => 4, 'precision' => 2, 'unsigned' => true, 'null' => false, 'default' => null, 'comment' => ''],
-        'limit' => ['type' => 'float', 'length' => 16, 'precision' => 2, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
-        'balance' => ['type' => 'float', 'length' => 16, 'precision' => 2, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
-        'due_date' => ['type' => 'date', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'created' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
-        'modified' => ['type' => 'datetime', 'length' => null, 'precision' => null, 'null' => true, 'default' => null, 'comment' => ''],
+        'id' => [
+            'type' => 'integer',
+            'length' => null,
+            'unsigned' => true,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'autoIncrement' => true,
+            'precision' => null
+        ],
+        'issuer' => [
+            'type' => 'string',
+            'length' => 100,
+            'null' => false,
+            'default' => null,
+            'collate' => 'utf8mb4_unicode_ci',
+            'comment' => '',
+            'precision' => null
+        ],
+        'name' => [
+            'type' => 'string',
+            'length' => 100,
+            'null' => false,
+            'default' => '',
+            'collate' => 'utf8mb4_unicode_ci',
+            'comment' => '',
+            'precision' => null
+        ],
+        'url' => [
+            'type' => 'text',
+            'length' => null,
+            'null' => true,
+            'default' => null,
+            'collate' => 'utf8mb4_unicode_ci',
+            'comment' => '',
+            'precision' => null
+        ],
+        'img_url' => [
+            'type' => 'text',
+            'length' => null,
+            'null' => true,
+            'default' => null,
+            'collate' => 'utf8mb4_unicode_ci',
+            'comment' => '',
+            'precision' => null
+        ],
+        'apr' => [
+            'type' => 'float',
+            'length' => 4,
+            'precision' => 2,
+            'unsigned' => true,
+            'null' => false,
+            'default' => null,
+            'comment' => ''
+        ],
+        'limit' => [
+            'type' => 'float',
+            'length' => 16,
+            'precision' => 2,
+            'unsigned' => false,
+            'null' => false,
+            'default' => null,
+            'comment' => ''
+        ],
+        'balance' => [
+            'type' => 'float',
+            'length' => 16,
+            'precision' => 2,
+            'unsigned' => false,
+            'null' => false,
+            'default' => null,
+            'comment' => ''
+        ],
+        'due_date' => [
+            'type' => 'date',
+            'length' => null,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
+        ],
+        'created' => [
+            'type' => 'datetime',
+            'length' => null,
+            'precision' => null,
+            'null' => true,
+            'default' => null,
+            'comment' => ''
+        ],
+        'modified' => [
+            'type' => 'datetime',
+            'length' => null,
+            'precision' => null,
+            'null' => true,
+            'default' => null,
+            'comment' => ''
+        ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -37,6 +123,7 @@ class CreditCardsFixture extends TestFixture
         ],
     ];
     // phpcs:enable
+
     /**
      * Init method
      *
