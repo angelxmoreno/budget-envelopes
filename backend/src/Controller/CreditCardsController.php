@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Utils\ResultSetTotals;
+
 /**
  * CreditCards Controller
  *
@@ -11,6 +13,10 @@ namespace App\Controller;
  */
 class CreditCardsController extends AppController
 {
+    public $paginate = [
+        'limit' => 100,
+    ];
+
     /**
      * Index method
      *
@@ -19,8 +25,8 @@ class CreditCardsController extends AppController
     public function index()
     {
         $creditCards = $this->paginate($this->CreditCards);
-
-        $this->set(compact('creditCards'));
+        $totals = ResultSetTotals::creditCards($creditCards);
+        $this->set(compact('creditCards', 'totals'));
     }
 
     /**

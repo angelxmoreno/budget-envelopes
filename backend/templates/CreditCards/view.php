@@ -54,6 +54,10 @@
                     <th><?= __('Modified') ?></th>
                     <td><?= h($creditCard->modified) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Is Auto Paid') ?></th>
+                    <td><?= $creditCard->is_auto_paid ? __('Yes') : __('No'); ?></td>
+                </tr>
             </table>
             <div class="text">
                 <strong><?= __('Url') ?></strong>

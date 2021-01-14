@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * CreditCardsFixture
+ * LoansFixture
  */
-class CreditCardsFixture extends TestFixture
+class LoansFixture extends TestFixture
 {
     /**
      * Fields
@@ -72,7 +72,7 @@ class CreditCardsFixture extends TestFixture
             'default' => null,
             'comment' => ''
         ],
-        'limit' => [
+        'amount' => [
             'type' => 'float',
             'length' => 16,
             'precision' => 2,
@@ -81,14 +81,22 @@ class CreditCardsFixture extends TestFixture
             'default' => null,
             'comment' => ''
         ],
-        'balance' => [
-            'type' => 'float',
-            'length' => 16,
-            'precision' => 2,
-            'unsigned' => false,
+        'date_issued' => [
+            'type' => 'date',
+            'length' => null,
             'null' => false,
             'default' => null,
-            'comment' => ''
+            'comment' => '',
+            'precision' => null
+        ],
+        'terms' => [
+            'type' => 'smallinteger',
+            'length' => null,
+            'unsigned' => true,
+            'null' => false,
+            'default' => null,
+            'comment' => '',
+            'precision' => null
         ],
         'due_date' => [
             'type' => 'date',
@@ -147,12 +155,13 @@ class CreditCardsFixture extends TestFixture
                 'url' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'img_url' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
                 'apr' => 1,
-                'limit' => 1,
-                'balance' => 1,
+                'amount' => 1,
+                'date_issued' => '2021-01-14',
+                'terms' => 1,
                 'due_date' => '2021-01-14',
                 'is_auto_paid' => 1,
-                'created' => '2021-01-14 05:39:45',
-                'modified' => '2021-01-14 05:39:45',
+                'created' => '2021-01-14 05:39:54',
+                'modified' => '2021-01-14 05:39:54',
             ],
         ];
         parent::init();

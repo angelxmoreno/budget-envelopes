@@ -15,7 +15,7 @@ use Cake\ORM\Entity;
  * @property string|null $img_url
  * @property float $amount
  * @property string $frequency
- * @property bool|null $is_auto_paid
+ * @property bool $is_auto_paid
  * @property \Cake\I18n\FrozenDate $due_date
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified

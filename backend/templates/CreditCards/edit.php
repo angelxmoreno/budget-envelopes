@@ -30,6 +30,7 @@
                     echo $this->Form->control('limit');
                     echo $this->Form->control('balance');
                     echo $this->Form->control('due_date');
+                    echo $this->Form->control('is_auto_paid');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

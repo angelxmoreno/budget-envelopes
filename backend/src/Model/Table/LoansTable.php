@@ -7,25 +7,25 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * CreditCards Model
+ * Loans Model
  *
- * @method \App\Model\Entity\CreditCard newEmptyEntity()
- * @method \App\Model\Entity\CreditCard newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\CreditCard[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\CreditCard get($primaryKey, $options = [])
- * @method \App\Model\Entity\CreditCard findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\CreditCard patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\CreditCard[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\CreditCard|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\CreditCard saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\CreditCard[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\CreditCard[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\CreditCard[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\CreditCard[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Loan newEmptyEntity()
+ * @method \App\Model\Entity\Loan newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\Loan[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Loan get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Loan findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Loan patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Loan[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Loan|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Loan saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Loan[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Loan[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Loan[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Loan[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class CreditCardsTable extends Table
+class LoansTable extends Table
 {
     /**
      * Initialize method
@@ -37,7 +37,7 @@ class CreditCardsTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('credit_cards');
+        $this->setTable('loans');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
@@ -82,14 +82,18 @@ class CreditCardsTable extends Table
             ->notEmptyString('apr');
 
         $validator
-            ->numeric('limit')
-            ->requirePresence('limit', 'create')
-            ->notEmptyString('limit');
+            ->numeric('amount')
+            ->requirePresence('amount', 'create')
+            ->notEmptyString('amount');
 
         $validator
-            ->numeric('balance')
-            ->requirePresence('balance', 'create')
-            ->notEmptyString('balance');
+            ->date('date_issued')
+            ->requirePresence('date_issued', 'create')
+            ->notEmptyDate('date_issued');
+
+        $validator
+            ->requirePresence('terms', 'create')
+            ->notEmptyString('terms');
 
         $validator
             ->date('due_date')

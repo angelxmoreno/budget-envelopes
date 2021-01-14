@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 namespace App\Model\Entity;
 
+use App\Utils\LoanPayments;
 use Cake\ORM\Entity;
 
 /**
- * CreditCard Entity
+ * Loan Entity
  *
  * @property int $id
  * @property string $issuer
@@ -14,19 +15,18 @@ use Cake\ORM\Entity;
  * @property string|null $url
  * @property string|null $img_url
  * @property float $apr
- * @property float $limit
- * @property float $balance
- * @property float $available
- * @property float $usage
+ * @property float $amount
+ * @property \Cake\I18n\FrozenDate $date_issued
+ * @property int $terms
  * @property \Cake\I18n\FrozenDate $due_date
  * @property bool $is_auto_paid
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  */
-class CreditCard extends Entity
+class Loan extends Entity
 {
+    protected $_virtual = ['monthly_payment'];
 
-    protected $_virtual = ['available', 'usage'];
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -42,23 +42,22 @@ class CreditCard extends Entity
         'url' => true,
         'img_url' => true,
         'apr' => true,
-        'limit' => true,
-        'balance' => true,
+        'amount' => true,
+        'date_issued' => true,
+        'terms' => true,
         'due_date' => true,
         'is_auto_paid' => true,
         'created' => true,
         'modified' => true,
     ];
 
-    protected function _getAvailable(): float
+    protected function _getMonthlyPayment(): ?float
     {
-        return $this->limit - $this->balance;
-    }
-
-    protected function _getUsage(): float
-    {
-        return $this->limit == 0
-            ? 0
-            : $this->balance / $this->limit * 100;
+        try {
+            $apr = $this->apr > 0 ? $this->apr / 100 / 12 : 0;
+            return LoanPayments::calcPayment($this->amount, $this->terms, $apr);
+        } catch (\Throwable $exception) {
+            return null;
+        }
     }
 }
