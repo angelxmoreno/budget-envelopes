@@ -52,6 +52,7 @@ $controllers = [
             <?= $this->Html->linkFromPath(Inflector::singularize($controller), $controller . '::index') ?>
         <?php endforeach; ?>
         <?= $this->Html->linkFromPath('Bills', 'Bills::index') ?>
+        <?= $this->Html->linkFromPath('Credit Cards', 'CreditCards::index') ?>
         <?= $this->Html->linkFromPath('Categories', 'Categories::index') ?>
 
     </div>
