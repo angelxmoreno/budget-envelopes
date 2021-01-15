@@ -17,10 +17,10 @@ declare(strict_types=1);
                 <th><?= $this->Paginator->sort('apr') ?></th>
                 <th><?= $this->Paginator->sort('limit') ?></th>
                 <th><?= $this->Paginator->sort('balance') ?></th>
-                <th><?= $this->Paginator->sort('usage') ?></th>
                 <th><?= $this->Paginator->sort('available') ?></th>
+                <th><?= $this->Paginator->sort('interest_charge', 'Charges') ?></th>
                 <th><?= $this->Paginator->sort('due_date') ?></th>
-                <th><?= $this->Paginator->sort('is_auto_paid') ?></th>
+                <th><?= $this->Paginator->sort('minimum_payment', 'Payment') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             </thead>
@@ -32,14 +32,18 @@ declare(strict_types=1);
                             'width' => 150
                         ]) : '' ?>
                         <h4><?= h($creditCard->name) ?></h4>
+                        <h4><?= $creditCard->is_auto_paid ? __('Auto Paid') : ''; ?></h4>
                     </td>
                     <td><?= $this->Number->toPercentage($creditCard->apr) ?></td>
                     <td><?= $this->Number->currency($creditCard->limit) ?></td>
-                    <td><?= $this->Number->currency($creditCard->balance) ?></td>
-                    <td><?= $this->Number->toPercentage($creditCard->usage) ?></td>
+                    <td>
+                        <?= $this->Number->currency($creditCard->balance) ?>
+                        <h5>( <?= $this->Number->toPercentage($creditCard->usage) ?> )</h5>
+                    </td>
                     <td><?= $this->Number->currency($creditCard->available) ?></td>
+                    <td><?= $this->Number->currency($creditCard->interest_charge) ?></td>
                     <td><?= h($creditCard->due_date) ?></td>
-                    <td><?= $creditCard->is_auto_paid ? __('Yes') : __('No'); ?></td>
+                    <td><?= $this->Number->currency($creditCard->minimum_payment) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $creditCard->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $creditCard->id]) ?>
@@ -48,20 +52,40 @@ declare(strict_types=1);
                     </td>
                 </tr>
             <?php endforeach; ?>
-            <tr>
-                <td>
-                    Totals
-                </td>
-                <td><?= $this->Number->toPercentage($totals->apr) ?></td>
-                <td><?= $this->Number->currency($totals->limit) ?></td>
-                <td><?= $this->Number->currency($totals->balance) ?></td>
-                <td><?= $this->Number->toPercentage($totals->usage) ?></td>
-                <td><?= $this->Number->currency($totals->available) ?></td>
-                <td></td>
-                <td></td>
-                <td class="actions"></td>
-            </tr>
             </tbody>
+
+            <tfooter>
+                <tr>
+                    <th></th>
+                    <th><?= $this->Paginator->sort('apr', 'Avg Apr') ?></th>
+                    <th><?= $this->Paginator->sort('limit', 'Total Limit') ?></th>
+                    <th><?= $this->Paginator->sort('balance') ?></th>
+                    <th><?= $this->Paginator->sort('usage') ?></th>
+                    <th><?= $this->Paginator->sort('available') ?></th>
+                    <th><?= $this->Paginator->sort('interest_charge', 'Charges') ?></th>
+                    <th><?= $this->Paginator->sort('minimum_payment', 'Payment') ?></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        Totals
+                    </td>
+                    <td><?= $this->Number->toPercentage($totals->apr) ?></td>
+                    <td><?= $this->Number->currency($totals->limit) ?></td>
+                    <td>
+                        <?= $this->Number->currency($totals->balance) ?>
+                    </td>
+                    <td>
+                        <?= $this->Number->toPercentage($totals->usage) ?>
+                    </td>
+                    </td>
+                    <td><?= $this->Number->currency($totals->available) ?></td>
+                    <td><?= $this->Number->currency($totals->interest_charge) ?></td>
+                    <td><?= $this->Number->currency($totals->minimum_payment) ?></td>
+                    <td></td>
+                </tr>
+            </tfooter>
+
         </table>
     </div>
 </div>

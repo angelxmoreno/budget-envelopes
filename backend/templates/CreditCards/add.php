@@ -17,15 +17,15 @@
             <fieldset>
                 <legend><?= __('Add Credit Card') ?></legend>
                 <?php
-                    echo $this->Form->control('issuer');
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('url');
-                    echo $this->Form->control('img_url');
-                    echo $this->Form->control('apr');
-                    echo $this->Form->control('limit');
-                    echo $this->Form->control('balance');
-                    echo $this->Form->control('due_date');
-                    echo $this->Form->control('is_auto_paid');
+                echo $this->Form->control('issuer');
+                echo $this->Form->control('name');
+                echo $this->Form->control('url');
+                echo $this->Form->control('img_url');
+                echo $this->Form->control('apr');
+                echo $this->Form->control('limit');
+                echo $this->Form->control('balance');
+                echo $this->Form->control('due_date');
+                echo $this->Form->control('is_auto_paid');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

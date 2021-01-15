@@ -35,7 +35,8 @@ class ResultSetTotals
             'apr' => $credit_cards->avg('apr'),
             'limit' => $credit_cards->sumOf('limit'),
             'balance' => $credit_cards->sumOf('balance'),
-            'amount' => $credit_cards->sumOf('amount')
+            'amount' => $credit_cards->sumOf('amount'),
+            'interest_charge' => $credit_cards->sumOf('interest_charge'),
         ]);
     }
 

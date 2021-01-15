@@ -16,6 +16,7 @@ use Cake\ORM\Entity;
  * @property string|null $img_url
  * @property float $apr
  * @property float $amount
+ * @property float $monthly_payment
  * @property \Cake\I18n\FrozenDate $date_issued
  * @property int $terms
  * @property \Cake\I18n\FrozenDate $due_date

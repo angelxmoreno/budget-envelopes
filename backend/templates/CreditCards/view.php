@@ -8,8 +8,12 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Credit Card'), ['action' => 'edit', $creditCard->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Credit Card'), ['action' => 'delete', $creditCard->id], ['confirm' => __('Are you sure you want to delete # {0}?', $creditCard->id), 'class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Edit Credit Card'), ['action' => 'edit', $creditCard->id],
+                ['class' => 'side-nav-item']) ?>
+            <?= $this->Form->postLink(__('Delete Credit Card'), ['action' => 'delete', $creditCard->id], [
+                'confirm' => __('Are you sure you want to delete # {0}?', $creditCard->id),
+                'class' => 'side-nav-item'
+            ]) ?>
             <?= $this->Html->link(__('List Credit Cards'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
             <?= $this->Html->link(__('New Credit Card'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
         </div>

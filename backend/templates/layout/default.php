@@ -17,9 +17,6 @@
 use Cake\Utility\Inflector;
 
 $cakeDescription = 'BudgetEnvelopes: another budgeting app';
-$controllers = [
-    'IncomeDeductions',
-]
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,14 +40,11 @@ $controllers = [
 <body>
 <nav class="top-nav">
     <div class="top-nav-title">
-        <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
+        <a href="<?= $this->Url->build('/') ?>"><span>Budget</span>Envelopes</a>
     </div>
     <div class="top-nav-links">
         <?= $this->Html->linkFromPath('Income', 'Incomes::view', [1]) ?>
 
-        <?php foreach ($controllers as $controller) : ?>
-            <?= $this->Html->linkFromPath(Inflector::singularize($controller), $controller . '::index') ?>
-        <?php endforeach; ?>
         <?= $this->Html->linkFromPath('Bills', 'Bills::index') ?>
         <?= $this->Html->linkFromPath('Credit Cards', 'CreditCards::index') ?>
         <?= $this->Html->linkFromPath('Loans', 'Loans::index') ?>

@@ -22,16 +22,16 @@
             <fieldset>
                 <legend><?= __('Edit Loan') ?></legend>
                 <?php
-                    echo $this->Form->control('issuer');
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('url');
-                    echo $this->Form->control('img_url');
-                    echo $this->Form->control('apr');
-                    echo $this->Form->control('amount');
-                    echo $this->Form->control('date_issued');
-                    echo $this->Form->control('terms');
-                    echo $this->Form->control('due_date');
-                    echo $this->Form->control('is_auto_paid');
+                echo $this->Form->control('issuer');
+                echo $this->Form->control('name');
+                echo $this->Form->control('url');
+                echo $this->Form->control('img_url');
+                echo $this->Form->control('apr');
+                echo $this->Form->control('amount');
+                echo $this->Form->control('date_issued');
+                echo $this->Form->control('terms');
+                echo $this->Form->control('due_date');
+                echo $this->Form->control('is_auto_paid');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

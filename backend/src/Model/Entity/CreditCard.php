@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Model\Entity;
 
+use App\Utils\CreditCardPayments;
 use Cake\ORM\Entity;
 
 /**
@@ -18,6 +19,8 @@ use Cake\ORM\Entity;
  * @property float $balance
  * @property float $available
  * @property float $usage
+ * @property float $interest_charge
+ * @property float $minimum_payment
  * @property \Cake\I18n\FrozenDate $due_date
  * @property bool $is_auto_paid
  * @property \Cake\I18n\FrozenTime|null $created
@@ -26,7 +29,7 @@ use Cake\ORM\Entity;
 class CreditCard extends Entity
 {
 
-    protected $_virtual = ['available', 'usage'];
+    protected $_virtual = ['available', 'usage', 'interest_charge', 'minimum_payment'];
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -60,5 +63,19 @@ class CreditCard extends Entity
         return $this->limit == 0
             ? 0
             : $this->balance / $this->limit * 100;
+    }
+
+    protected function _getInterestCharge(): float
+    {
+        return $this->balance == 0
+            ? 0
+            : CreditCardPayments::interestCharge($this->balance, $this->apr);
+    }
+
+    protected function _getMinimumPayment(): float
+    {
+        return $this->balance == 0
+            ? 0
+            : CreditCardPayments::monthlyMinimum($this->balance, $this->apr);
     }
 }

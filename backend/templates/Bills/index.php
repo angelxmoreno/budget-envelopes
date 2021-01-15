@@ -25,9 +25,9 @@ declare(strict_types=1);
             <?php foreach ($bills as $bill): ?>
                 <tr>
                     <td>
-                        <?= $bill->has('img_url') ? $this->Html->image($bill->img_url,[
+                        <?= $bill->has('img_url') ? $this->Html->image($bill->img_url, [
                             'width' => 75
-                        ]): ''?>
+                        ]) : '' ?>
                         <h4><?= h($bill->name) ?></h4>
                     </td>
                     <td><?= $this->Number->currency($bill->amount) ?></td>
